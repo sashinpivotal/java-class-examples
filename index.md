@@ -25,7 +25,8 @@ CREATE TABLE employees (
     ename varchar(255) NOT NULL, 
     department_id int(11) default NULL,
     salary decimal(7,2) NOT NULL,  
-    PRIMARY KEY  (employee_id)
+    PRIMARY KEY  (employee_id),
+    FOREIGN KEY (department_id) REFERENCES departments(department_id)
 ) ENGINE=InnoDB;  
 
 /* Data for the table departments */
