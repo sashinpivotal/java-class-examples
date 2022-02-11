@@ -151,4 +151,5 @@ ON employees.department_id=departments.department_id;
 /* Self Join */
 SELECT 'Self Join', e1.ename, e2.salary
 FROM employees AS e1, employees AS e2
+WHERE e1.employee_id=e2.employee_id;
 ```
