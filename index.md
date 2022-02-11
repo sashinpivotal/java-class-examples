@@ -47,7 +47,7 @@ VALUES
 (6,'newperson','5000.00', NULL);
 ```
 
-1. Do "cross join"
+2. Do "cross join"
 
 ```
 /* The following two Cross Join statements are equivalent */
@@ -61,7 +61,7 @@ SELECT 'Cross Join', e.ename, e.salary, d.dname
 FROM employees AS e CROSS JOIN departments AS d;
 ```
 
-1. Do "Inner join"
+3. Do "Inner join"
 
 ```
 /* The following Inner Join statements are equivalent */
@@ -90,7 +90,7 @@ INNER JOIN departments
 ON employees.department_id=departments.department_id;
 ```
 
-1. Do "Outer Join"
+4. Do "Outer Join"
 
 ```
 /* Outer Join could be either LEFT JOIN or RIGHT JOIN */
@@ -142,7 +142,7 @@ LEFT OUTER JOIN employees
 ON employees.department_id=departments.department_id;
 ```
 
-1. Self join
+5. Self join
 
 ```
 /* Self Join involves joining a table to itself */
