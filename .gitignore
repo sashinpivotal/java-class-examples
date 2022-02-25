@@ -1,0 +1,14 @@
+build
+target
+.DS_Store
+*.iml
+pal.properties
+course.properties
+
+.idea
+.gradle
+.vscode
+.project
+.settings
+variables.yaml
+variables.yml
