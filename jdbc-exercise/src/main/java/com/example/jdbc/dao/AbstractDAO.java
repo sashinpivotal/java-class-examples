@@ -2,11 +2,9 @@ package com.example.jdbc.dao;
 
 import java.sql.*;
 
-public class AbstractDAO {
+import static com.example.jdbc.Constants.*;
 
-    private final String url = "jdbc:mysql://localhost/classicmodels";
-    private final String USER = "root";
-    private final String PASS = "";
+public class AbstractDAO {
 
     protected Connection conn = null;
     protected PreparedStatement ps = null;
@@ -14,8 +12,8 @@ public class AbstractDAO {
 
     public void connect() throws SQLTransientConnectionException {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(url, USER, PASS);
+            Class.forName(MYSQL_CJ_JDBC_DRIVER);
+            conn = DriverManager.getConnection(JDBC_MYSQL_LOCALHOST_CLASSICMODELS, USERNAME, PASSWORD);
         } catch (SQLException e) {
             throw new SQLTransientConnectionException();
         } catch (ClassNotFoundException e) {

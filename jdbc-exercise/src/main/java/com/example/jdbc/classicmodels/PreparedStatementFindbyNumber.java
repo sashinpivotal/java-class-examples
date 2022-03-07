@@ -2,10 +2,15 @@ package com.example.jdbc.classicmodels;
 
 import java.sql.*;
 
+import static com.example.jdbc.Constants.JDBC_MYSQL_LOCALHOST_CLASSICMODELS;
+import static com.example.jdbc.Constants.MYSQL_CJ_JDBC_DRIVER;
+
 public class PreparedStatementFindbyNumber {
+
+
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String url = "jdbc:mysql://localhost/classicmodels";
+        Class.forName(MYSQL_CJ_JDBC_DRIVER);
+        String url = JDBC_MYSQL_LOCALHOST_CLASSICMODELS;
         final String USER = "root";
         final String PASS = "";
         Connection conn = DriverManager.getConnection(url, USER, PASS);
