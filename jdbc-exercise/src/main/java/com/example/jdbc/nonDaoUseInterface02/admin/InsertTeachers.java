@@ -1,14 +1,14 @@
-package com.example.jdbc.dao.admin;
+package com.example.jdbc.nonDaoUseInterface02.admin;
 
 import java.sql.*;
 
-public class InsertStudents {
+public class InsertTeachers {
     public static void main(String args[]) {
 
         String url = "jdbc:mysql://localhost:3306/classicmodels";
         Connection con;
         Statement stmt;
-        String query = "select FNAME, LNAME from STUDENTS";
+        String query = "select FNAME, LNAME from TEACHERS";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -24,17 +24,17 @@ public class InsertStudents {
                     "root", "");
             stmt = con.createStatement();
 
-            stmt.executeUpdate("insert into STUDENTS " +
-                    "values(1, 'sang@tek.com','sang', 'shin')");
+            stmt.executeUpdate("insert into TEACHERS " +
+                    "values(1, 'teacher1@tek.com','tom', 'young')");
 
-            stmt.executeUpdate("insert into STUDENTS " +
-                    "values(2, 'dan@tek.com','dan', 'pale')");
+            stmt.executeUpdate("insert into TEACHERS " +
+                    "values(2, 'teacher2@tek.com','paul', 'old')");
 
             // Perform the query
             ResultSet rs = stmt.executeQuery(query);
 
             // Display the rows
-            System.out.println("Student names:");
+            System.out.println("Teacher names:");
             while (rs.next()) {
                 String s = rs.getString("FNAME");
                 String f = rs.getString("LNAME");

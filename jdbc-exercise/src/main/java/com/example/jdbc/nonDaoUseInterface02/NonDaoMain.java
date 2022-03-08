@@ -1,8 +1,8 @@
-package com.example.jdbc.dao;
+package com.example.jdbc.nonDaoUseInterface02;
 
 import java.util.List;
 
-public class DaoMain {
+public class NonDaoMain {
     public static void main(String[] args) {
         StudentDaoI studentDaoI = new StudentDaoImpl();
 
@@ -18,5 +18,20 @@ public class DaoMain {
                 + student.getEmail() + " "
                 + student.getfName() + " "
                 + student.getlName());
+
+        TeacherDaoI teacherDaoI = new TeacherDaoImpl();
+
+        List<Teacher> allTeachers = teacherDaoI.getAllTeachers();
+        allTeachers.forEach(teacher
+                -> System.out.println("teacher info: "
+                + teacher.getEmail() + " "
+                + teacher.getfName() + " "
+                + teacher.getlName()));
+
+        Teacher teacher = teacherDaoI.getTeacherById(1);
+        System.out.println("Teacher 1: "
+                + teacher.getEmail() + " "
+                + teacher.getfName() + " "
+                + teacher.getlName());
     }
 }

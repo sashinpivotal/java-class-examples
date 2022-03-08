@@ -5,7 +5,7 @@ import java.sql.*;
 import static com.example.jdbc.Constants.JDBC_MYSQL_LOCALHOST_CLASSICMODELS;
 import static com.example.jdbc.Constants.MYSQL_CJ_JDBC_DRIVER;
 
-public class PreparedStatementFindbyNumber {
+public class PreparedStatementFindbyNumber2 {
 
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {

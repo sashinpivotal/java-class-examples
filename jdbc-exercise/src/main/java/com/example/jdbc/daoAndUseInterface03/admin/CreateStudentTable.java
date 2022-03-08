@@ -1,4 +1,4 @@
-package com.example.jdbc.dao.admin;
+package com.example.jdbc.daoAndUseInterface03.admin;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

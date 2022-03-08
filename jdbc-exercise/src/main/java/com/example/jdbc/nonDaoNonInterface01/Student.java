@@ -1,4 +1,4 @@
-package com.example.jdbc.dao;
+package com.example.jdbc.nonDaoNonInterface01;
 
 public class Student {
     private int id;

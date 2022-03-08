@@ -1,17 +1,17 @@
-package com.example.jdbc.dao.admin;
+package com.example.jdbc.nonDaoNonInterface01.admin;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DropStudentsTable {
+public class DropTeachersTable {
 
     public static void main(String args[]) {
 
         String url = "jdbc:mysql://localhost:3306/classicmodels";
         Connection con;
-        String dropString = "drop table STUDENTS";
+        String dropString = "drop table TEACHERS";
         Statement stmt;
 
         try {
@@ -28,7 +28,7 @@ public class DropStudentsTable {
             stmt = con.createStatement();
             stmt.executeUpdate(dropString);
 
-            System.out.println("STUDENTS table is successfully dropped");
+            System.out.println("TEACHERS table is successfully dropped");
             stmt.close();
             con.close();
         } catch(SQLException ex) {

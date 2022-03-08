@@ -1,4 +1,4 @@
-package com.example.jdbc.dao;
+package com.example.jdbc.daoAndUseInterface03;
 
 import java.sql.*;
 
