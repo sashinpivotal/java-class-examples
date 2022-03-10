@@ -27,7 +27,7 @@ public class FindUser_Hql {
         String hql = "FROM User";
         TypedQuery query = session.createQuery(hql);
         List<User> results = query.getResultList();
-        
+
         for (User u : results) {
             System.out.println("User Id: " + u.getId() + "|"
                     + " Full name: " + u.getFullname() +" | "

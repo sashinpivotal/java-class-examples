@@ -12,13 +12,13 @@ import java.util.List;
 class App4 {
     public static void main( String[] args ) {
         FindUser_Hql4 u = new FindUser_Hql4();
-        u.WhereClauseExample();
+        u.NamedParameterQuery();
     }
 }
 
 public class FindUser_Hql4 {
 
-    public void WhereClauseExample() {
+    public void NamedParameterQuery() {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
