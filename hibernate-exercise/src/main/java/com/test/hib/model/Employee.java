@@ -20,7 +20,9 @@ import org.hibernate.annotations.NamedQuery;
         @NamedQuery(name = "get_Emp_name_by_id", query = "select e.name,e.salary,e.job from Employee e where id=:id"),
         @NamedQuery(name = "get_all_dept", query = "from Employee"),
         @NamedQuery(name = "findEmployeeByName", query = "from Employee e where e.name = :name"),
-        @NamedQuery(name = "empDepAlias", query = "select e, e.officeCode , e.name, CASE When (e.officeCode = '1') THEN 'IT'"
+        @NamedQuery(name = "empDepAlias", query = "select e, e.officeCode , e.name, "
+                + "CASE "
+                + "When (e.officeCode = 1) THEN 'IT'"
                 + "WHEN (e.officeCode = 6) THEN 'Admin'"
                 + "WHEN (e.officeCode = 5) THEN 'HR'"
                 + "WHEN (e.officeCode = 4) THEN 'Developers'"
