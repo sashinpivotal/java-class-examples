@@ -30,6 +30,7 @@ public class CreateUser {
         uTwo.setSalary(2060.69);
         uTwo.setAge(25);
         uTwo.setCity("Dallas");
+
         User uThree = new User();
         uThree.setEmail("Shahparan@gmail.com");
         uThree.setFullname("AH Shahparan");

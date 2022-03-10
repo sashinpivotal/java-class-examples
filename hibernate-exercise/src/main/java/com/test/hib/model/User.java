@@ -50,7 +50,8 @@ public class User {
     }
 
     @Column(name = "USER_ID")
-    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }

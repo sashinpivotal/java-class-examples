@@ -12,10 +12,13 @@ public class DeletingUser {
         // TODO Auto-generated method stub
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
+
         Transaction tx = session.beginTransaction();
+
         User u = new User();
         u.setId(3);
         session.delete(u);
+
         tx.commit();
         session.close();
         factory.close();

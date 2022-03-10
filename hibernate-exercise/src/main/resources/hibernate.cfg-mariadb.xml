@@ -7,14 +7,14 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hibernate.hbm2ddl.auto"> update </property>
         <!-- Database connection settings -->
-        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/mydb</property>
+        <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mariadb://localhost:3306/mydb</property>
         <property name="connection.username">root</property>
         <property name="connection.password"></property>
         <!-- Maria DB dialect -->
-        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="dialect">org.hibernate.dialect.MariaDB10Dialect</property>
         <!-- Echo all executed SQL to stdout -->
-        <property name="hibernate.show_sql" >true </property>
+        <property name="hibernate.show_sql" >false </property>
         <property name="hibernate.format_sql" >false </property>
 
         <!--   Mapping entity file -->
