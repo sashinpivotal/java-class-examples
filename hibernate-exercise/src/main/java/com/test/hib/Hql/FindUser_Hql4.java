@@ -12,21 +12,26 @@ import java.util.List;
 class App4 {
     public static void main( String[] args ) {
         FindUser_Hql4 u = new FindUser_Hql4();
-        u.NamedQueryExample();
+        u.WhereClauseExample();
     }
 }
 
 public class FindUser_Hql4 {
 
-    public void NamedQueryExample() {
+    public void WhereClauseExample() {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
+
         String hql = "FROM User u WHERE u.id = :id";
         TypedQuery query = session.createQuery(hql);
         query.setParameter("id", 2);
         List<User> result = query.getResultList();
+
         for (User u : result) {
-            System.out.println("User Id: " + u.getId() + "|" + " Full name:" + u.getFullname() + "|" + "Email: " + u.getEmail() + "|" + "password: " + u.getPassword());
+            System.out.println("User Id: " + u.getId() + "|"
+                    + " Full name:" + u.getFullname() + "|"
+                    + "Email: " + u.getEmail() + "|"
+                    + "password: " + u.getPassword());
         }
 
     }

@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import com.test.hib.model.User;
 
+import javax.persistence.TypedQuery;
+
 class App {
     public static void main( String[] args ) {
         FindUser_Hql u = new FindUser_Hql();
@@ -23,8 +25,9 @@ public class FindUser_Hql {
         Session session = factory.openSession();
 
         String hql = "FROM User";
-        Query query = session.createQuery(hql);
+        TypedQuery query = session.createQuery(hql);
         List<User> results = query.getResultList();
+        
         for (User u : results) {
             System.out.println("User Id: " + u.getId() + "|"
                     + " Full name: " + u.getFullname() +" | "
