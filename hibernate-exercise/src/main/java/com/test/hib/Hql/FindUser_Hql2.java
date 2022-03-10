@@ -27,7 +27,10 @@ public class FindUser_Hql2 {
         List<User> list  =  query.getResultList();
 
         for (User u : list) {
-            System.out.println("User Id: " +u.getId() + "|" + " Full name:" + u.getFullname() +"|"+ "Email: " + u.getEmail() +"|"+ "password" + u.getPassword());
+            System.out.println("User Id: " + u.getId() + "|"
+                    + " Full name:" + u.getFullname() +"|"
+                    + "Email: " + u.getEmail() +"|"
+                    + "password" + u.getPassword());
         }
     }
 

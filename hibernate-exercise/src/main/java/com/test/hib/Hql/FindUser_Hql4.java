@@ -34,5 +34,8 @@ public class FindUser_Hql4 {
                     + "password: " + u.getPassword());
         }
 
+        session.close();
+        factory.close();
+
     }
 }
