@@ -18,7 +18,7 @@ public class UpdatingUser {
 
         User u = new User();
         u.setId(3);
-        u.setEmail("sang@perscholas");
+        u.setEmail("sang@perscholas.com");
         u.setFullname("Sang SHin2");
         u.setPassword("123456");
         session.merge(u);
