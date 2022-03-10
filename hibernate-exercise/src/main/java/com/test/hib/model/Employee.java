@@ -26,7 +26,7 @@ import org.hibernate.annotations.NamedQuery;
                 + "WHEN (e.officeCode = 6) THEN 'Admin'"
                 + "WHEN (e.officeCode = 5) THEN 'HR'"
                 + "WHEN (e.officeCode = 4) THEN 'Developers'"
-                + "WHEN(e.officeCode = 3) THEN 'Accounts'"
+                + "WHEN (e.officeCode = 3) THEN 'Accounts'"
                 + "WHEN (e.officeCode = 2) THEN 'Finanace'"
                 + "ELSE 'General' END FROM Employee e  "),
 })
