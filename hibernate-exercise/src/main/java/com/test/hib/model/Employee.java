@@ -32,6 +32,7 @@ import org.hibernate.annotations.NamedQuery;
 })
 
 public class Employee {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
