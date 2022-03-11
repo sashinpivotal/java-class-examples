@@ -36,9 +36,9 @@ public class App {
         teacher3.setTeacherName("James");
 
         Teacher teacher4 = new Teacher();
-        teacher3.setDep(department2);
-        teacher3.setSalary("40000");
-        teacher3.setTeacherName("Joseph");
+        teacher4.setDep(department2);
+        teacher4.setSalary("40000");
+        teacher4.setTeacherName("Joseph");
 
         session.save(department1);
         session.save(department2);
