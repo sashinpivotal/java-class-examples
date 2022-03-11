@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 5.3//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-5.3.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hibernate.hbm2ddl.auto"> create </property>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/mydb</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+        <!-- Maria DB dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <!-- Echo all executed SQL to stdout -->
+        <property name="hibernate.show_sql" >true </property>
+        <property name="hibernate.format_sql" >false </property>
+
+        <!--   Mapping entity file -->
+        <mapping class="com.test.hib.mapping.oneToOne.Person"/>
+        <mapping class="com.test.hib.mapping.oneToOne.Address"/>
+        <mapping class="com.test.hib.mapping.manyToOne.Department"/>
+        <mapping class="com.test.hib.mapping.manyToOne.Teacher"/>
+        <mapping class="com.test.hib.mapping.oneToMany.Department2"/>
+        <mapping class="com.test.hib.mapping.oneToMany.Teacher2"/>
+
+    </session-factory>
+</hibernate-configuration>
+
