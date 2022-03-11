@@ -11,6 +11,7 @@ import java.util.Set;
 @Entity
 @Table(name = "Teacher3")
 public class Teacher3 {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int tit;
@@ -20,10 +21,10 @@ public class Teacher3 {
     @ManyToMany(targetEntity = Cohort.class)
     private Set cohortSet;
 
-    public Teacher3(String salary, String teachername, Set CohortSet) {
+    public Teacher3(String salary, String teachername, Set cohortSet) {
         this.salary = salary;
         this.Teachername = teachername;
-        this.cohortSet = CohortSet;
+        this.cohortSet = cohortSet;
 
     }
 
