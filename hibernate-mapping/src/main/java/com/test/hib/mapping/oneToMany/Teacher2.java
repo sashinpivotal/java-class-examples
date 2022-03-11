@@ -15,8 +15,6 @@ public class Teacher2 implements Serializable {
     private String salary;
     private String teacherName;
 
-    private Department2 department;
-
     public Teacher2(int id, String salary, String teachername) {
         this.id = id;
         this.salary = salary;
@@ -24,14 +22,6 @@ public class Teacher2 implements Serializable {
     }
 
     public Teacher2() {
-    }
-
-    public Department2 getDep() {
-        return department;
-    }
-
-    public void setDep(Department2 department) {
-        this.department = department;
     }
 
     public int getId() {
