@@ -12,7 +12,7 @@
         <property name="connection.username">root</property>
         <property name="connection.password"></property>
         <!-- Maria DB dialect -->
-        <property name="dialect">org.hibernate.dialect.MariaDB10Dialect</property>
+        <property name="dialect">org.hibernate.dialect.MariaDB102Dialect</property>
         <!-- Echo all executed SQL to stdout -->
         <property name="hibernate.show_sql" >false </property>
         <property name="hibernate.format_sql" >false </property>
