@@ -26,7 +26,7 @@ class Calculator2Tests {
 
 	@Test
 	@DisplayName("1 + 1 = 2")
-	void addsTwoNumbers() {
+	void add_returns_added_value_given_two_numbers() {
 		Calculator2 calculator = new Calculator2();
 		assertEquals(2, calculator.add(1, 1), "1 + 1 should equal 2");
 	}
@@ -39,17 +39,11 @@ class Calculator2Tests {
 			"49,  51, 100",
 			"1,  100, 101"
 	})
-	void add(int first, int second, int expectedResult) {
+	void add_returns_added_value_given_multiple_test_numbers
+			(int first, int second, int expectedResult) {
 		Calculator2 calculator = new Calculator2();
 		assertEquals(expectedResult, calculator.add(first, second),
 				() -> first + " + " + second + " should equal " + expectedResult);
 	}
 
-	@Test
-	void name() {
-
-
-		Assertions.assertThat(new ArrayList<>()).isNotEmpty().contains("John").doesNotContain("x");
-
-	}
 }
