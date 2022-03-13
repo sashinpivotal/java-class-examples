@@ -10,6 +10,7 @@
 
 package com.example.junitexercise;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,9 +18,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(MockitoExtension.class)
 class Calculator2Tests {
 
 	@Test
@@ -41,5 +43,13 @@ class Calculator2Tests {
 		Calculator2 calculator = new Calculator2();
 		assertEquals(expectedResult, calculator.add(first, second),
 				() -> first + " + " + second + " should equal " + expectedResult);
+	}
+
+	@Test
+	void name() {
+
+
+		Assertions.assertThat(new ArrayList<>()).isNotEmpty().contains("John").doesNotContain("x");
+
 	}
 }

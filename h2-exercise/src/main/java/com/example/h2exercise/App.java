@@ -13,6 +13,7 @@ public class App {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
+        
         Student student = new Student("Haseeb", "Muhammad", "mhaseebe@mail.com");
         Student student1 = new Student("John", "Cena", "john@mail.com");
         Student student2 = new Student("Jennifer", "Baji", "jBaji@mail.com");
@@ -23,14 +24,17 @@ public class App {
         session.save(student2);
         // commit transaction
         t.commit();
+
         // ------------------ retrieve data from H2 database ----------------------
         String hql = "SELECT s FROM Student s";
         Query query = session.createQuery(hql);
         List<Student> list = query.getResultList();
 
         for (Student stu : list) {
-            System.out.println("Student Id: " + stu.getId() + " | First name: " + stu.getFirstName() + " | LastName: " + stu.getLastName() + " | Email: " + stu.getEmail());
-
+            System.out.println("Student Id: " + stu.getId()
+                    + " | First name: " + stu.getFirstName()
+                    + " | LastName: " + stu.getLastName()
+                    + " | Email: " + stu.getEmail());
         }
     }
 }
