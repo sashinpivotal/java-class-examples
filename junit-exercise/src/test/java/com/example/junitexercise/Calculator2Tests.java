@@ -11,6 +11,7 @@
 package com.example.junitexercise;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,10 +25,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Calculator2Tests {
 
+	private Calculator2 calculator;
+
+	@BeforeEach
+	void setUp() {
+		calculator = new Calculator2();
+	}
+
 	@Test
-	@DisplayName("More humanly readable description")
+	@DisplayName("More humanly readable description of add")
 	void add_returns_added_value_given_two_numbers() {
-		Calculator2 calculator = new Calculator2();
 		assertEquals(2, calculator.add(1, 1), "1 + 1 should equal 2");
 	}
 
@@ -41,9 +48,8 @@ class Calculator2Tests {
 	})
 	void add_returns_added_value_given_multiple_test_numbers
 			(int first, int second, int expectedResult) {
-		Calculator2 calculator = new Calculator2();
 		assertEquals(expectedResult, calculator.add(first, second),
 				() -> first + " + " + second + " should equal " + expectedResult);
 	}
-
+	
 }
