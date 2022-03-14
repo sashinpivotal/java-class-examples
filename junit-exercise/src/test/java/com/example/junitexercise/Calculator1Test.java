@@ -17,6 +17,7 @@ class Calculator1Test {
 
     @Test
     void should_return_added_value_when_two_numbers_are_given() {
+
         assertEquals(5, calculator1.add(2, 3));
         Assertions.assertThat(calculator1.add(2, 3)).isEqualTo(5);
     }

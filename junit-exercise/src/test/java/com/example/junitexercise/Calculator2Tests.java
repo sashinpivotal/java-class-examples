@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class Calculator2Tests {
 
 	@Test
-	@DisplayName("1 + 1 = 2")
+	@DisplayName("More humanly readable description")
 	void add_returns_added_value_given_two_numbers() {
 		Calculator2 calculator = new Calculator2();
 		assertEquals(2, calculator.add(1, 1), "1 + 1 should equal 2");
