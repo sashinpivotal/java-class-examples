@@ -25,31 +25,57 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Calculator2Tests {
 
-	private Calculator2 calculator;
+    private Calculator2 calculator;
 
-	@BeforeEach
-	void setUp() {
-		calculator = new Calculator2();
-	}
+    @BeforeEach
+    void setUp() {
+        calculator = new Calculator2();
+    }
 
-	@Test
-	@DisplayName("More humanly readable description of add")
-	void add_returns_added_value_given_two_numbers() {
-		assertEquals(2, calculator.add(1, 1), "1 + 1 should equal 2");
-	}
+    @Test
+    @DisplayName("Using JUnit 5 assertion")
+    void add_returns_added_value_given_two_numbers1() {
+        assertEquals(2, calculator.add(1, 1),
+                "1 + 1 should equal 2");
+    }
 
-	@DisplayName("parameterized test")
-	@ParameterizedTest(name = "{0} + {1} = {2}")
-	@CsvSource({
-			"0,    1,   1",
-			"1,    2,   3",
-			"49,  51, 100",
-			"1,  100, 101"
-	})
-	void add_returns_added_value_given_multiple_test_numbers
-			(int first, int second, int expectedResult) {
-		assertEquals(expectedResult, calculator.add(first, second),
-				() -> first + " + " + second + " should equal " + expectedResult);
-	}
-	
+    @Test
+    @DisplayName("Using AssertJ assertion")
+    void add_returns_added_value_given_two_numbers2() {
+        Assertions.assertThat(calculator.add(1, 1))
+                .withFailMessage("1 + 1 should equal 2")
+                .isEqualTo(2);
+    }
+
+    @DisplayName("parameterized test using JUnit 5 assert")
+    @ParameterizedTest(name = "{0} + {1} = {2}")
+    @CsvSource({
+            "0,    1,   1",
+            "1,    2,   3",
+            "49,  51, 100",
+            "1,  100, 101"
+    })
+    void add_returns_added_value_given_multiple_test_numbers1
+            (int first, int second, int expectedResult) {
+        assertEquals(expectedResult, calculator.add(first, second),
+                () -> first + " + " + second + " should equal " + expectedResult);
+    }
+
+    @DisplayName("parameterized test using AssertJ")
+    @ParameterizedTest(name = "{0} + {1} = {2}")
+    @CsvSource({
+            "0,    1,   1",
+            "1,    2,   3",
+            "49,  51, 100",
+            "1,  100, 101"
+    })
+    void add_returns_added_value_given_multiple_test_numbers2
+            (int first, int second, int expectedResult) {
+        assertEquals(expectedResult, calculator.add(first, second),
+                () -> first + " + " + second + " should equal " + expectedResult);
+        Assertions.assertThat(calculator.add(first, second))
+                .withFailMessage("%d + %d should equal %d", first, second, expectedResult)
+                .isEqualTo(expectedResult);
+    }
+
 }
