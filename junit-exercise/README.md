@@ -10,3 +10,7 @@
 ### Part 2
 
 - Choose 2 or 3 Java projects you worked on during the past couple of weeks and write test code
+
+## References
+
+- [AssertJ Exception Assertions](https://www.baeldung.com/assertj-exception-assertion)
