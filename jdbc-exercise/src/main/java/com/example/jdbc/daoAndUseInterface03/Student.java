@@ -1,5 +1,7 @@
 package com.example.jdbc.daoAndUseInterface03;
 
+import java.util.Objects;
+
 public class Student {
     private int id;
     private String email;
@@ -46,5 +48,18 @@ public class Student {
 
     public String getlName() {
         return lName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id && Objects.equals(email, student.email) && Objects.equals(fName, student.fName) && Objects.equals(lName, student.lName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, email, fName, lName);
     }
 }

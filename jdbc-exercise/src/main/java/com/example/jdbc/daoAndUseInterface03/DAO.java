@@ -4,7 +4,7 @@ import java.sql.*;
 
 import static com.example.jdbc.Constants.*;
 
-public class AbstractDAO {
+public class DAO {
 
     protected Connection conn = null;
     protected PreparedStatement ps = null;
