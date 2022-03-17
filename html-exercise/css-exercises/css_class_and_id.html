@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* element that has id attribute */
+        #extra {
+            background-color: orange;
+            width: 200px;
+            height: 100px;
+        }
+        /* elements with class attribute */
+        .container {
+            background-color: red;
+            width: 300px;
+            height: 300px;
+        }
+
+        .sub_container {
+            background-color: green;
+            width: 100px;
+            height: 100px;
+        }
+        /* div container parent to a div */
+        div div {
+            background-color: black;
+            width: 50px;
+            height: 50px;
+        }
+
+        /* all div in general */
+        div {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="sub_container">
+        Inner Div 1
+    </div>
+    <div class="sub_container" id="extra">
+        Inner Div 2
+    </div>
+</div>
+</body>
+</html>

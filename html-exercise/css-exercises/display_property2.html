@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            margin-top: 10px;
+            background-color: red;
+            width: 300px;
+            height: 300px;
+            display: inline-block;
+        }
+        div div {
+            /* only div containers that are
+               child to div
+             */
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            Inner Div 1
+        </div>
+        <div>
+            Inner Div 2
+        </div>
+    </div>
+    <div>
+        <div>
+            Inner Div 1
+        </div>
+        <div>
+            Inner Div 2
+        </div>
+    </div>
+</body>
+</html>
