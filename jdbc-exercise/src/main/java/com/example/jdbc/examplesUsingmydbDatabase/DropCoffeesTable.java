@@ -1,4 +1,4 @@
-package com.example.jdbc.mydb;
+package com.example.jdbc.examplesUsingmydbDatabase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

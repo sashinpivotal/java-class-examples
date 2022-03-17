@@ -1,4 +1,4 @@
-package com.example.jdbc.classicmodels;
+package com.example.jdbc.exampleUsingclassicmodelsDatabase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
