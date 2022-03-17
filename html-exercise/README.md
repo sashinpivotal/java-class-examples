@@ -14,3 +14,7 @@
 ## CSS 3 Exercise tasks
 
 - Do the activity exercises mentioned on slide 12, 17, 19 of "3. HTML_CSS 3" presentation
+
+## CSS 4 Exercise tasks
+
+- Do the activity exercises mentioned on slide 28

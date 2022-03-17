@@ -1,0 +1,15 @@
+div {
+    text-align: center;
+    border: 2px dashed red;
+    width: 800px;
+    height: 400px;
+}
+#div1 {
+    background-color: aqua;
+}
+#div2 {
+    background-color: antiquewhite;
+}
+#div3 {
+    background-color: blueviolet;
+}
