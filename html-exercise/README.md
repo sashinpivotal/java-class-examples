@@ -18,3 +18,7 @@
 ## CSS 4 Exercise tasks
 
 - Do the activity exercises mentioned on slide 28
+
+## CSS 5 Exercise tasks
+
+- Do the activity exercises mentioned on slide 22,23,24,25,33

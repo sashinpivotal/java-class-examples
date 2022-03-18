@@ -1,0 +1,15 @@
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border: 5px solid lightskyblue;
+    transition-property: background-color, border, height, width;
+    transition-duration: 2s, 2s, 2s, 2s;
+}
+
+.box:hover {
+    width: 150px;
+    height: 60px;
+    background-color: lightskyblue;
+    border: 5px dashed red;
+}
