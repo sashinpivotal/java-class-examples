@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    scope = "global";
+
+    function checkScope2() {
+        scope = "meant to be local but global";
+        myScope = "meant to be local but global";
+        return [scope, myScope];
+    }
+
+    var result = checkScope2();
+    console.log(scope);
+    console.log(myScope);
+    console.log(result);
+</script>
+
+</body>
+</html>

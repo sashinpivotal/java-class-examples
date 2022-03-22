@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function printprops(p) {
+        for (var o in p)
+            console.log(o + ": " + p[o] + "\n");
+    }
+    var person = {
+        first_name: "Luke",
+        last_name: "Lance",
+        age: 23
+    }
+    printprops(person);
+</script>
+
+</body>
+</html>
