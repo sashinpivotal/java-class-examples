@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+        function upperCase() {
+            let x=document.getElementById("fname").value
+            document.getElementById("fname").value=x.toUpperCase()
+        }
+    </script>
+</head>
+
+<body>
+
+Enter your name:
+<input type="text" id="fname" onblur="upperCase()">
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form id="Form1" name="Form1">
+    Your name: <input type="text">
+</form>
+<form id="Form2" name="Form2">
+    Your car: <input type="text">
+</form>
+
+<p>
+    To access an item in a collection you can either use the number or the name of the item:
+</p>
+
+<script type="text/javascript">
+    document.write("<p>The first form's name is: " + document.forms[0].name + "</p>")
+    document.write("<p>The first form's name is: " + document.getElementById("Form1").name + "</p>")
+</script>
+
+</body>
+</html>
