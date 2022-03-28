@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function mydropbox() {
+            var mylist = document.getElementById("myList");
+            document.getElementById("favourite").value = mylist.options[mylist.selectedIndex].text;
+        }
+    </script>
+</head>
+<body>
+<form>
+    <b> Select you favourite location for vacation </b>
+    <select id="myList" onchange="mydropbox()">
+        <option> ---Choose Location---</option>
+        <option> Florida</option>
+        <option> New York</option>
+        <option> Hollywood</option>
+        <option> Texas</option>
+    </select>
+    <p> Your selected location site is:
+        <input type="text" id="favourite" size="20"</p>
+</form>
+</body>
+</html>
+
+</html>
