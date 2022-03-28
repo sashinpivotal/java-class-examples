@@ -19,7 +19,7 @@ function main_validator(e) {
 }
 
 function check_username(username) {
-    let re = new RegExp(/^[a-zA-Z0-9_.-]*$[a-zA-Z_.-]*$/g);
+    let re = new RegExp(/^[a-zA-Z0-9_.-]*$[a-zA-Z_.-]*$/);
     let message = "";
     let someWrong = false;
     console.log(re.test(username));
@@ -43,7 +43,7 @@ function check_username(username) {
 }
 
 function check_dob(dob) {
-    let re = new RegExp(/^(0[1-9]|1[012])[-/.](0[1-9]|[12][0-9]|3[01])[-/.](19|20)\\d\\d$/);
+    let re = new RegExp(/^\d{4}-\d{2}-\d{2}$/);
     let message = "";
     let someWrong = false;
     if (!re.test(dob)) {
