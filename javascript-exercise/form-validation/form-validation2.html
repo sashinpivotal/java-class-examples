@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<script type="text/javascript" src="script/script.js"></script>
+<div class="main_container">
+    <div class="form_container">
+        <h1>Awesome Form</h1>
+        <form class="form" method="post" action="re" id="form">
+            <div class="field_container">
+                <img src="images/username.png">
+                <input type="text" id="username"
+                       placeholder="Username"
+                       pattern="^[a-zA-Z0-9_.-]*$[a-zA-Z_.-]*$"
+                       required>
+            </div>
+            <div class="field_container">
+                <img src="images/calendar.png">
+                <input type="date" id="date"
+                       value="1993-07-22"
+                       min="1800-01-01" max="2002-12-31"
+                       placeholder="Date of Birth"
+                       required>
+            </div>
+            <div class="button_container">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+<div id="feedback"></div>
+</body>
+</html>

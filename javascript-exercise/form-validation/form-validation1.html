@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+<script type="text/javascript" src="script/script.js"></script>
+<form action="form.html" name="myForm" onsubmit="return(validate());" method="POST" id="formone">
+    <table cellspacing="2" cellpadding="2" border="1">
+        <tr>
+            <td><input type="text" name="Name" value="" id="NAME" placeholder="Enter Name"/></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="EMail" value="" id="emailID" placeholder="Enter Email"/></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="Zip" id="ZipID" placeholder="Enter Zip Code"/></td>
+        </tr>
+        <tr>
+            <td><select name="Country" id="CountryId">
+                <option value="USA"> [choose yours] | Select Country</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="UAE">UAE</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><input type="password" name="password" value="" id="password" placeholder="Password"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"/></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
