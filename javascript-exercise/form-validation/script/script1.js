@@ -40,7 +40,6 @@ function validate() {
         alert("Name: " + NAME + ", Password: " + pass + ", Email: " + emailValue + " ,Country: " + CountryId + " ,Zip Code: " + zipid);
         return true;
     }
-    return (true);
 }
 
 function validateEmail() {
