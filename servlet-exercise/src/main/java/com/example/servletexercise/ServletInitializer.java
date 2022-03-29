@@ -11,18 +11,6 @@ import javax.servlet.ServletRegistration;
 
 public class ServletInitializer extends SpringBootServletInitializer {
 
-//    public void onStartup(ServletContext container) throws ServletException {
-//        AnnotationConfigWebApplicationContext ctx
-//                = new AnnotationConfigWebApplicationContext();
-//        ctx.register(WebMvcConfigure.class);
-//        ctx.setServletContext(container);
-//
-//        ServletRegistration.Dynamic servlet = container.addServlet(
-//                "dispatcherExample", new DispatcherServlet(ctx));
-//        servlet.setLoadOnStartup(1);
-//        servlet.addMapping("/");
-//    }
-
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(ServletExerciseApplication.class);
