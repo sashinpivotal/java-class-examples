@@ -30,10 +30,10 @@ public class HelloServletShowRequestHeaders extends HttpServlet {
                         "<B>Request Protocol: </B>" +
                         request.getProtocol() + "<BR><BR>\n" +
                         "\n");
-        
-        Enumeration headerNames = request.getHeaderNames();
+
+        Enumeration<String> headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
-            String headerName = (String) headerNames.nextElement();
+            String headerName = headerNames.nextElement();
             out.println("<B>"+headerName +": </B>"
                         + request.getHeader(headerName) + "<BR>");
         }
