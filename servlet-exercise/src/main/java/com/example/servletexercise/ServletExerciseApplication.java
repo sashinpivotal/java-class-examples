@@ -13,9 +13,17 @@ public class ServletExerciseApplication {
     }
 
     @Bean
-    public ServletRegistrationBean exampleServletBean() {
+    public ServletRegistrationBean helloServletBean() {
         ServletRegistrationBean bean = new ServletRegistrationBean(
-                new HelloServlet(), "/*");
+                new HelloServlet(), "/hello1/*");
+        bean.setLoadOnStartup(1);
+        return bean;
+    }
+
+    @Bean
+    public ServletRegistrationBean helloServletShowRequestHeadersBean() {
+        ServletRegistrationBean bean = new ServletRegistrationBean(
+                new HelloServletShowRequestHeaders(), "/hello2/*");
         bean.setLoadOnStartup(1);
         return bean;
     }
