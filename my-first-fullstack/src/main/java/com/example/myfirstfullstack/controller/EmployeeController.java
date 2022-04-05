@@ -41,7 +41,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/saveEmployee")
-    public String saveEmployee(/*@ModelAttribute("employee")*/ @Valid Employee employee,
+    public String saveEmployee(@ModelAttribute("employee") @Valid Employee employee,
                                BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
