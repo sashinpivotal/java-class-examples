@@ -24,6 +24,11 @@ public class EmployServiceImpl2 implements EmployeeService {
     }
 
     @Override
+    public Employee getEmployeeByName(String name) {
+        return null;
+    }
+
+    @Override
     public void deleteEmployeeById(long id) {
 
     }
