@@ -1,3 +1,15 @@
+## The security features supported
+
+- Add multiple users to the system with roles - we are going to store them in the InMemory database
+- Encode the password using Bcrypt
+- Provide login page (you can customize it)
+- Provide logout button in the index.html
+- Provide access control in the following matter
+    - A user with USER privilege can read Employee data 
+    - A user with ADMIN privilege can read/update/create Employee 
+    - A user with SUPERADMIN privilege can read/update/create/delete Employee 
+    - If a user with insufficient privilege tries to perform an action, “error.html” will be displayed
+    
 ## Steps to add Spring security
 
 1. Add Spring Boot security starter to pom.xml and refresh the IDE
@@ -98,4 +110,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 </body>
 </html>
+```
+
+5. Add "logout" button to the "index.html"
+
+```
+<div class="container my-2">
+    <a th:href="@{/logout}" class="btn btn-primary btn-sm mb-3"> Log out </a>
+</div>
 ```
