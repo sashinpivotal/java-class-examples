@@ -18,7 +18,7 @@ public class EmployeeRestController {
 
     @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
-        return   new ArrayList<Employee>(employees.values());
+        return new ArrayList<Employee>(employees.values());
     }
 
     @GetMapping("/employees/{name}")
