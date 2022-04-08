@@ -1,16 +1,18 @@
 package com.example.springrestapp;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class EmployeeRestController {
 
     private Employee employee;
 
-    Map<String, Employee> employees = new HashMap<>();
+    Map<Long, Employee> employees = new HashMap<>();
 
     public EmployeeRestController(Employee employee) {
         this.employee = employee;
@@ -21,24 +23,32 @@ public class EmployeeRestController {
         return new ArrayList<Employee>(employees.values());
     }
 
-    @GetMapping("/employees/{name}")
-    public Employee getEmployee(@PathVariable("name") String name) {
-        return employees.get(name);
+    @GetMapping("/employees/{id}")
+    public Employee getEmployee(@PathVariable("id") long id) {
+        Employee employee = employees.get(id);
+        if (employee == null) {
+            throw new EmployeeNotFoundException();
+        }
+        return employee;
     }
 
     @PostMapping("/employees")
     public void addEmployee(@RequestBody Employee employee) {
-        employees.put(employee.getName(), employee);
+        employees.put(employee.getId(), employee);
     }
 
-    @PutMapping("/employees/{name}")
-    public Employee updateEmployee(@RequestBody Employee employee) {
-        employees.replace(employee.getName(), employee);
-        return employees.get(employee.getName());
+    @PutMapping("/employees/{id}")
+    public Employee updateEmployee(@PathVariable("id") long id, @RequestBody Employee employee) {
+        Employee existingEmployee = employees.get(id);
+        if (existingEmployee == null) {
+            throw new EmployeeNotFoundException();
+        }
+        employees.replace(existingEmployee.getId(), employee);
+        return employees.get(existingEmployee.getId());
     }
 
-    @DeleteMapping("/employees/{name}")
-    public void deleteEmployee(@PathVariable("name") String name) {
-        employees.remove(name);
+    @DeleteMapping("/employees/{id}")
+    public void deleteEmployee(@PathVariable("name") long id) {
+        employees.remove(id);
     }
 }
