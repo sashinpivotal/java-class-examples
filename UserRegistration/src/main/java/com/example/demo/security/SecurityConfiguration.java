@@ -17,26 +17,27 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // @formatter:off
         http
                 .authorizeRequests()
-                .antMatchers(
+                    .antMatchers(
                         "/registration**",
                         "/js/**",
                         "/css/**",
                         "/img/**",
                         "/webjars/**").permitAll()
-                .anyRequest().authenticated()
+                    .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout")
-                .permitAll();
+                    .formLogin()
+                        .loginPage("/login").permitAll()
+                    .and()
+                        .logout()
+                            .invalidateHttpSession(true)
+                            .clearAuthentication(true)
+                            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                            .logoutSuccessUrl("/login?logout")
+                            .permitAll();
+        // @formatter:on
     }
 
     @Bean
