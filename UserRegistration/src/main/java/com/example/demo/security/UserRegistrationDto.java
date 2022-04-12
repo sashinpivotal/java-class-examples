@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.security;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;

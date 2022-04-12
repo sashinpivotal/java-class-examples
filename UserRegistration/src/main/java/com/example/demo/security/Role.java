@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.security;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,7 +35,7 @@ public class Role {
 
     @Override
     public String toString() {
-        return "com.example.demo.Role{" +
+        return "com.example.demo.security.Role{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

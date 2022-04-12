@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.security;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

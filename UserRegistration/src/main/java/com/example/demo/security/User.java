@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.security;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -93,7 +93,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "com.example.demo.User{" +
+        return "com.example.demo.security.User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
