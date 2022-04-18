@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.Objects;
 
 @Entity
 @Table(name="EMPLOYEES")
@@ -13,7 +14,7 @@ public class Employee {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
     @NotNull
-    @Size(min=5, max=30)
+    @Size(min=2, max=30)
     @Column(name="FIRST_NAME")
     private String firstName;
     @Column(name = "LAST_NAME")
@@ -53,5 +54,18 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(email, employee.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, email);
     }
 }

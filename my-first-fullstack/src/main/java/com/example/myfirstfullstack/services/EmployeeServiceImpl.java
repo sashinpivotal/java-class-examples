@@ -8,10 +8,11 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Primary
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
 
     private EmployeeRepository employeeRepository;
     private Employee employee;
@@ -33,13 +34,13 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public Employee getEmployeeById(long id) {
-        Employee employee;
-        try {
-            employee = employeeRepository.getById(id);
-        } catch (EntityNotFoundException e) {
-            throw new EmployeeNotFoundException();
+
+        Optional<Employee> optionalEmployee = employeeRepository.findById(id);
+        if (optionalEmployee.isPresent()) {
+            Employee employee = optionalEmployee.get();
+            return employee;
         }
-        return  employee;
+        throw new EmployeeNotFoundException();
     }
 
     @Override
@@ -48,7 +49,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         if (employee == null) {
             throw new EmployeeNotFoundException();
         }
-        return  employee;
+        return employee;
     }
 
     @Override
