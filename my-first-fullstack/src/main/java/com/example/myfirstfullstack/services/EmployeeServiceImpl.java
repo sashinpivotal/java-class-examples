@@ -27,11 +27,21 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findAll();
     }
 
+
     @Override
     public void saveEmployee(Employee employee) {
         employeeRepository.save(employee);
     }
 
+
+    /**
+     * Returns an Employee object based on id argument.
+     * <p>
+     * Some more description of the method.
+     *
+     * @param  id  id of an employee
+     * @return      Employee object
+     */
     @Override
     public Employee getEmployeeById(long id) {
 
