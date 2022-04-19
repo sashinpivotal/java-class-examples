@@ -19,9 +19,12 @@ class EmployeeServiceImplTest {
 
     @Autowired
     private EmployeeService employeeService;
-
+    
     @Test
     void getAllEmployees() {
+        // arrange
+
+        // act and assert
         List<Employee> allEmployees = employeeService.getAllEmployees();
         int beforeAddingMoreEmployees = allEmployees.size();
 
@@ -34,6 +37,8 @@ class EmployeeServiceImplTest {
 
         Assertions.assertThat(afterAddingMoreEmployees).isEqualTo(beforeAddingMoreEmployees + 1);
         Assertions.assertThat(allEmployees.contains(employee1));
+
+        // verify
     }
 
     @Test
@@ -41,7 +46,7 @@ class EmployeeServiceImplTest {
         List<Employee> allEmployees = employeeService.getAllEmployees();
         Employee employee1 = allEmployees.get(0);
         if (employee1 != null) {
-            Employee employee2 = employeeService.getEmployeeById(1);
+            Employee employee2 = employeeService.getEmployeeById(employee1.getId());
             Assertions.assertThat(employee1).isEqualTo(employee2);
         }
     }
