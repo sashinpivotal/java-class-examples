@@ -1,16 +1,10 @@
 package com.example.myfirstfullstack.services;
 
-import com.example.myfirstfullstack.MyFirstFullstackApplication;
 import com.example.myfirstfullstack.models.Employee;
-import com.example.myfirstfullstack.repositories.EmployeeRepository;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 
