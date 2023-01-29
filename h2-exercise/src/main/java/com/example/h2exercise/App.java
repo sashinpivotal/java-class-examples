@@ -14,14 +14,14 @@ public class App {
         Session session = factory.openSession();
         Transaction t = session.beginTransaction();
         
-        Student student = new Student("Haseeb", "Muhammad", "mhaseebe@mail.com");
-        Student student1 = new Student("John", "Cena", "john@mail.com");
-        Student student2 = new Student("Jennifer", "Baji", "jBaji@mail.com");
+        Student student1 = new Student("Haseeb", "Muhammad", "mhaseebe@mail.com");
+        Student student2 = new Student("John", "Cena", "john@mail.com");
+        Student student3 = new Student("Jennifer", "Baji", "jBaji@mail.com");
 
         // save the student objects
-        session.save(student);
         session.save(student1);
         session.save(student2);
+        session.save(student3);
         // commit transaction
         t.commit();
 
