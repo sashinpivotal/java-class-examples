@@ -6,8 +6,9 @@ import java.io.IOException;
 
 import static com.example.Constants.TEST_SOURCE_FILE;
 
-public class BinaryFilesReadEx1 {
+public class BinaryFileReadEx1 {
     public static void main(String[] args) {
+
         String fileName = TEST_SOURCE_FILE;
 
         try {

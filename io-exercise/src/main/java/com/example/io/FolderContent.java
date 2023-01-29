@@ -7,11 +7,13 @@ import java.io.InputStreamReader;
 
 public class FolderContent {
     public static void main(String[] args) throws IOException {
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter directory path:");
         String dirpath = br.readLine();
         System.out.println("Enter directory name");
         String dname = br.readLine();
+
         File file = new File(dirpath, dname);
         if (file.exists()) {
             String[] list = file.list();

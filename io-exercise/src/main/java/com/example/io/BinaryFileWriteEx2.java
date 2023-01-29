@@ -8,7 +8,9 @@ import static com.example.Constants.TEST_DEST_FILE;
 
 public class BinaryFileWriteEx2 {
     public static void main(String[] args) {
+
         String fileName = TEST_DEST_FILE;
+
         try {
             FileWriter fileWriter = new FileWriter(fileName);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);

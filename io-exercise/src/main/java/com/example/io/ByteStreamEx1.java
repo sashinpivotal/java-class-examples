@@ -10,8 +10,10 @@ import static com.example.Constants.TEST_SOURCE_FILE;
 
 public class ByteStreamEx1 {
     public static void main(String[] args) throws IOException {
+
         FileInputStream fis = null;
         FileOutputStream fos = null;
+
         try {
             fis = new FileInputStream(TEST_SOURCE_FILE);
             fos = new FileOutputStream(TEST_DEST_FILE);

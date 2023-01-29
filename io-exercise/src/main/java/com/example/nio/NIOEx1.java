@@ -16,6 +16,7 @@ public class NIOEx1 {
         FileInputStream fileInputStream
                 = new FileInputStream(TEST_SOURCE_FILE);
         ReadableByteChannel source = fileInputStream.getChannel();
+
         FileOutputStream fileOutputStream
                 = new FileOutputStream(TEST_DEST_FILE);
         WritableByteChannel destination = fileOutputStream.getChannel();
@@ -26,7 +27,8 @@ public class NIOEx1 {
 
     }
 
-    private static void copyData(ReadableByteChannel source, WritableByteChannel destination) throws IOException {
+    private static void copyData(ReadableByteChannel source,
+                                 WritableByteChannel destination) throws IOException {
         ByteBuffer buffer = ByteBuffer.allocate(20 * 1024);
         while (source.read(buffer) != -1) {
             buffer.flip();
