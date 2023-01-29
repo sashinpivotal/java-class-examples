@@ -16,7 +16,5 @@ public class InheritanceActivity {
         System.out.println("trainee salary is " + salary1);
         System.out.println("trainee travel allowance is "
                 + employee2.calculateTransportAllowance());
-
-
     }
 }

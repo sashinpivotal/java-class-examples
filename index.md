@@ -1,9 +1,9 @@
 
 ## Java sample projects 
 
-All prjects are built with Maven and should be runnable.
+All projects are built with Maven and should be runnable.
 
-- lambda-exercise: Contains simeple lambda exercises
+- lambda-exercise: Contains simple lambda exercises
 - io-exercise: Contains all sample programs shown in the presentation
 - jdbc-exercise: Contains all sample programs shown in the presentation
 - hibernate-exercise: Contains all sample programs shown in the presentation as well as extra
