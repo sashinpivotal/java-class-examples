@@ -31,7 +31,7 @@ public class EmployeeController {
     @GetMapping("/")
     public String getAllEmployees(Model model) {
         model.addAttribute("listEmployees", employeeService.getAllEmployees());
-        return "index";
+        return "employee/index";
     }
 
     @GetMapping("/showNewEmployeeForm")
@@ -39,7 +39,7 @@ public class EmployeeController {
         // create model attribute to bind form data
         Employee employee = new Employee();
         model.addAttribute("employee", employee);
-        return "new_employee";
+        return "employee/new_employee";
     }
 
     @PostMapping("/saveEmployee")
@@ -47,7 +47,7 @@ public class EmployeeController {
                                BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "new_employee";
+            return "employee/new_employee";
         }
 
         // save employee to database
@@ -63,7 +63,7 @@ public class EmployeeController {
 
         // set employee as a model attribute to pre-populate the form
         model.addAttribute("employee", employee);
-        return "update_employee";
+        return "employee/update_employee";
     }
 
     @GetMapping("/deleteEmployee/{id}")

@@ -29,20 +29,10 @@ public class MyFirstFullstackApplication {
             System.out.println("employeeController = " + employeeController);
         }
 
-        try {
-            applicationContext.getBean(DummyService.class);
-        } catch (Exception e) {
-            System.out.println("dummyService bean not found");
-        }
     }
 
     @Bean
     public CommandLineRunner commandLineRunner(EmployeeService employeeService) {
-        return args -> System.out.println("My application got started!!");
-    }
-
-    @Bean
-    public CommandLineRunner commandLineRunner2() {
         return args -> System.out.println("My application got started!!");
     }
 
