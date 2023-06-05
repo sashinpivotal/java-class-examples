@@ -18,8 +18,8 @@ public class Main {
                 = SpringApplication.run(Main.class, args);
 
         Department department = new Department("engineering");
-        Teacher mary = new Teacher(2000.0, "mary");
-        Teacher tom = new Teacher(1000.0, "tom");
+        Teacher mary = new Teacher(2000.0, "mary2");
+        Teacher tom = new Teacher(1000.0, "tom2");
         ArrayList<Teacher> teachers = new ArrayList<>();
         teachers.add(mary);
         teachers.add(tom);
@@ -30,5 +30,7 @@ public class Main {
         Department department1 = departmentRepository.save(department);
         System.out.println(department1.getDepartmentName());
         System.out.println(department1.getTeachers());
+
+        departmentRepository.delete(department1);
     }
 }
