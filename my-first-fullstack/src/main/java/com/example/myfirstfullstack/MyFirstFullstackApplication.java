@@ -19,15 +19,7 @@ public class MyFirstFullstackApplication {
 
     public static void main(String[] args) {
 
-        ConfigurableApplicationContext applicationContext = SpringApplication.run(MyFirstFullstackApplication.class, args);
-        EmployeeService employeeService = applicationContext.getBean(EmployeeService.class);
-        if (employeeService != null) {
-            System.out.println("employService = " + employeeService);
-        }
-        EmployeeController employeeController = applicationContext.getBean(EmployeeController.class);
-        if (employeeController != null) {
-            System.out.println("employeeController = " + employeeController);
-        }
+        SpringApplication.run(MyFirstFullstackApplication.class, args);
 
     }
 
