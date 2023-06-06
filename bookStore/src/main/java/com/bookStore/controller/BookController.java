@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bookStore.entity.Book;
 import com.bookStore.entity.MyBook;
 import com.bookStore.service.BookService;
-import com.bookStore.service.MyBookListService;
+import com.bookStore.service.MyBookService;
 
 import java.util.*;
 
@@ -20,7 +20,7 @@ public class BookController {
     private BookService service;
 
     @Autowired
-    private MyBookListService myBookService;
+    private MyBookService myBookService;
 
     @GetMapping("/")
     public String home() {

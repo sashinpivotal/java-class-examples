@@ -5,16 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bookStore.service.MyBookListService;
+import com.bookStore.service.MyBookService;
 
 @Controller
-public class MyBookListController {
+public class MyBookController {
 	
 	@Autowired
-	private MyBookListService service;
+	private MyBookService service;
 	
 	@RequestMapping("/deleteMyList/{id}")
-	public String deleteMyList(@PathVariable("id") int id) {
+	public String deleteBook(@PathVariable("id") int id) {
 		service.deleteById(id);
 		return "redirect:/my_books";
 	}

@@ -9,7 +9,7 @@ import com.bookStore.entity.MyBook;
 import com.bookStore.repository.MyBookRepository;
 
 @Service
-public class MyBookListService {
+public class MyBookService {
 	
 	@Autowired
 	private MyBookRepository mybook;
