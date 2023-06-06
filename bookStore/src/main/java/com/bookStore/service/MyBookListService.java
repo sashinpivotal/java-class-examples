@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bookStore.entity.MyBookList;
+import com.bookStore.entity.MyBook;
 import com.bookStore.repository.MyBookRepository;
 
 @Service
@@ -14,11 +14,11 @@ public class MyBookListService {
 	@Autowired
 	private MyBookRepository mybook;
 	
-	public void saveMyBooks(MyBookList book) {
+	public void saveMyBooks(MyBook book) {
 		mybook.save(book);
 	}
 	
-	public List<MyBookList> getAllMyBooks(){
+	public List<MyBook> getAllMyBooks(){
 		return mybook.findAll();
 	}
 	
