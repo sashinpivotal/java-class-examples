@@ -41,21 +41,21 @@
 
 <div class="container my-5 p-5" style="border:1px solid black;">
     <h4 class="text-center">Edit Book Here</h4>
-    <form class="col-md-4 offset-md-4" th:action="@{/save}" method="post" th:object="${book}">
 
+    <form class="col-md-4 offset-md-4" th:action="@{/save}" method="post" th:object="${book}">
         <input type="hidden" name="id" th:value="${book.id}"/>
         <div class="mb-3">
-            <label for="name" class="form-label">Name
-            </label> <input type="text" class="form-control" name="name" th:value="${book.name}">
+            <label for="name" class="form-label">Name</label>
+            <input id="name" type="text" class="form-control" name="name" th:value="${book.name}">
         </div>
 
         <div class="mb-3">
-            <label for="author" class="form-label">Author
-            </label> <input type="text" class="form-control" name="author" th:value="${book.author}">
+            <label for="author" class="form-label">Author</label>
+            <input id="author" type="text" class="form-control" name="author" th:value="${book.author}">
         </div>
         <div class="mb-3">
-            <label for="price" class="form-label">Price
-            </label> <input type="text" class="form-control" name="price" th:value="${book.price}">
+            <label for="price" class="form-label">Price</label>
+            <input id="price" type="text" class="form-control" name="price" th:value="${book.price}">
         </div>
 
         <center>
