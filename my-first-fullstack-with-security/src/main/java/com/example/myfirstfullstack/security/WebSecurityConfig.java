@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -15,34 +16,38 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // @formatter:off
-        http.authorizeRequests()
-                .mvcMatchers("/login").permitAll()
-                .mvcMatchers("/deleteEmployee/**").hasAnyRole("SUPERADMIN")
-                .mvcMatchers("/showFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                .mvcMatchers("/showEmployeeForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                .mvcMatchers("/saveEmployee/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                .mvcMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll();
-        // @formatter:on
+        http.authorizeRequests(requests -> requests
+                        .mvcMatchers("/login").permitAll()
+                        .mvcMatchers("/deleteEmployee/**").hasAnyRole("SUPERADMIN")
+                        .mvcMatchers("/showFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                        .mvcMatchers("/showEmployeeForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                        .mvcMatchers("/saveEmployee/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                        .mvcMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                        .anyRequest().authenticated())
+                .formLogin(login -> login
+                        .loginPage("/login")
+                        .permitAll())
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/login"));
+
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        PasswordEncoder passwordEncoder
+                = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
         auth.inMemoryAuthentication()
-                .withUser("user").password(passwordEncoder.encode("user")).roles("USER").and()
-                .withUser("admin").password(passwordEncoder.encode("admin")).roles("USER", "ADMIN").and()
-                .withUser("superadmin").password(passwordEncoder.encode("superadmin")).roles("USER", "ADMIN", "SUPERADMIN");
+                .withUser("user")
+                .password(passwordEncoder.encode("user"))
+                .roles("USER").and()
+                .withUser("admin")
+                .password(passwordEncoder.encode("admin"))
+                .roles("USER", "ADMIN").and()
+                .withUser("superadmin")
+                .password(passwordEncoder.encode("superadmin"))
+                .roles("USER", "ADMIN", "SUPERADMIN");
 
     }
 
