@@ -1,6 +1,7 @@
 ## The security features supported
 
-- Add multiple users to the system with roles - we are going to store them in the InMemory database
+- Add multiple users to the system with roles 
+  - we are going to store them in the InMemory database
 - Encode the password using Bcrypt
 - Provide login page (you can customize it)
 - Provide logout button in the index.html
@@ -8,7 +9,8 @@
     - A user with USER privilege can read Employee data 
     - A user with ADMIN privilege can read/update/create Employee 
     - A user with SUPERADMIN privilege can read/update/create/delete Employee 
-    - If a user with insufficient privilege tries to perform an action, “error.html” will be displayed
+    - If a user with insufficient privilege tries to perform an action, 
+      “error.html” will be displayed
     
 ## Steps to add Spring security
 
@@ -118,4 +120,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 <div class="container my-2">
     <a th:href="@{/logout}" class="btn btn-primary btn-sm mb-3"> Log out </a>
 </div>
+```
+
+## Trouble-shooting
+
+- If experience any kind of persistence related problem,
+  please make sure you do the following to the running
+  MySQL server
+
+```sql
+drop database mydb;
+create database mydb;
 ```

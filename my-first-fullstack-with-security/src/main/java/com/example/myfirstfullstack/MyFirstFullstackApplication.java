@@ -18,9 +18,7 @@ import org.springframework.context.annotation.ComponentScan;
 public class MyFirstFullstackApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(MyFirstFullstackApplication.class, args);
-
     }
 
     @Bean
