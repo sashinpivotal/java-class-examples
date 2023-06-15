@@ -14,8 +14,8 @@ public class Department2 implements Serializable {
     private int did;
     private String dname;
 
-    @OneToMany(targetEntity = Teacher2.class, cascade = {CascadeType.ALL})
-    private List teacherList;
+    @OneToMany(cascade = {CascadeType.ALL})
+    private List<Teacher2> teacherList;
 
     public Department2(int did, String dname) {
         super();
@@ -42,11 +42,11 @@ public class Department2 implements Serializable {
         this.dname = dname;
     }
 
-    public List getTeacherList() {
+    public List<Teacher2> getTeacherList() {
         return teacherList;
     }
 
-    public void setTeacherList(List teacherList) {
+    public void setTeacherList(List<Teacher2> teacherList) {
         this.teacherList = teacherList;
     }
 }
