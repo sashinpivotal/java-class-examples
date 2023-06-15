@@ -1,6 +1,7 @@
 package com.example.myfirstfullstack.controller;
 
 import com.example.myfirstfullstack.models.Employee;
+import com.example.myfirstfullstack.services.EmployeeNotFoundException;
 import com.example.myfirstfullstack.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,16 @@ public class EmployeeController {
     public String getAllEmployees(Model model) {
         model.addAttribute("listEmployees", employeeService.getAllEmployees());
         return "employee/index";
+    }
+
+    @GetMapping("/employees/{id}")
+    public String getgitEmployee(@PathVariable int id, Model model) {
+        Employee employeeById = employeeService.getEmployeeById(id);
+        if (employeeById == null) {
+            throw new EmployeeNotFoundException();
+        }
+        model.addAttribute("employee", employeeService.getEmployeeById(id));
+        return "employee/index2";
     }
 
     @GetMapping("/showNewEmployeeForm")
