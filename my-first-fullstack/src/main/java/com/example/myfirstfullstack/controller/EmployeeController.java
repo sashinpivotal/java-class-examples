@@ -37,7 +37,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/{id}")
-    public String getgitEmployee(@PathVariable int id, Model model) {
+    public String getEmployee(@PathVariable int id, Model model) {
         Employee employeeById = employeeService.getEmployeeById(id);
         if (employeeById == null) {
             throw new EmployeeNotFoundException();
