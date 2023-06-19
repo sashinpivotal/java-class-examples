@@ -124,9 +124,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 ## Trouble-shooting
 
-- If experience any kind of persistence related problem,
+- For now, the application is using H2. You can certainly
+  use MySQL.
+- If experience any kind of MySQL related problem,
   please make sure you do the following to the running
-  MySQL server
+  MySQL server 
 
 ```sql
 drop database mydb;
