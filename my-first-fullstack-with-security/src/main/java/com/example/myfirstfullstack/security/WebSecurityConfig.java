@@ -26,6 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .anyRequest().authenticated())
                 .formLogin(login -> login
                         .loginPage("/login")
+                        .defaultSuccessUrl("/")
                         .permitAll())
                 .logout(logout -> logout
                         .logoutSuccessUrl("/login"));
@@ -60,6 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/static/**");
+                .antMatchers("/static/**")
+                .antMatchers("/**/*.css");
     }
 }
