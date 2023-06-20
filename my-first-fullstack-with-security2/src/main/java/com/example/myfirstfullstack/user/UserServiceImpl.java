@@ -10,15 +10,22 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private UserRepository userRepository;
+    private PasswordEncoder passwordEncoder;
 
-    private PasswordEncoder passwordEncoder
-            = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    public UserServiceImpl() {
+        passwordEncoder
+                = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository) {
+        this();
+        this.userRepository = userRepository;
+    }
 
     @Override
     public User createUser(User user) {
-        
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
@@ -33,8 +40,8 @@ public class UserServiceImpl implements UserService {
         }
 
         boolean isValid =
-                (username == existingUser.getUsername()
-                && password == existingUser.getPassword());
+                (username.equals(existingUser.getUsername()) &&
+                password.equals(existingUser.getPassword()));
 
         return isValid;
     }
@@ -58,14 +65,12 @@ public class UserServiceImpl implements UserService {
         }
 
         existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
-
         return userRepository.save(user);
     }
 
     @Override
     public void deleteUser(String username) {
         User existingUser = userRepository.findByUsername(username);
-
         if (existingUser == null) {
             throw new UserNotFoundException("User does not exist with Username: " + username);
         }
