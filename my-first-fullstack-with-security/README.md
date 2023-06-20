@@ -14,6 +14,7 @@
     
 ## Steps to add Spring security
 
+0. Use Spring Boot version 2.6.6
 1. Add Spring Boot security starter to pom.xml and refresh the IDE
 
 ```
@@ -40,25 +41,27 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // @formatter:off
-        http.authorizeRequests()
-                .mvcMatchers("/login").permitAll()
-                .mvcMatchers("/deleteEmployee/**").hasAnyRole("SUPERADMIN")
-                .mvcMatchers("/showFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                .mvcMatchers("/showEmployeeForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                .mvcMatchers("/saveEmployee/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                .mvcMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
-                .anyRequest().authenticated()
-                .and()
-             .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-             .logout()
-                .permitAll();
-        // @formatter:on
+        http.authorizeRequests(requests -> requests
+                        .mvcMatchers("/login").permitAll()
+                        .mvcMatchers("/deleteEmployee/**").hasAnyRole("SUPERADMIN")
+                        .mvcMatchers("/showFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                        .mvcMatchers("/showEmployeeForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                        .mvcMatchers("/saveEmployee/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                        .mvcMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                        .anyRequest().authenticated())
+                .formLogin(login -> login
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/")
+                        .permitAll())
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/login"));
+
     }
 
     @Override
