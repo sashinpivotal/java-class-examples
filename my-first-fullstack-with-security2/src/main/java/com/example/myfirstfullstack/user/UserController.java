@@ -24,8 +24,8 @@ public class UserController {
 
     @GetMapping("users/{username}")
     public ResponseEntity<User> getUser(@PathVariable("username") String username) {
-        User existinguser = userService.getUser(username);
-        return ResponseEntity.ok(existinguser);
+        User existingUser = userService.getUser(username);
+        return ResponseEntity.ok(existingUser);
 
     }
 

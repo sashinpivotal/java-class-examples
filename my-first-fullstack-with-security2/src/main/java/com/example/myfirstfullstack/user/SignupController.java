@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class SignupController {
 
-    @Autowired
     private UserService userService;
+
+    @Autowired
+    public SignupController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/signup")
     public String showSignup(Model model) {
@@ -23,7 +27,9 @@ public class SignupController {
     public String signupUser(@ModelAttribute("user") User user, Model model) {
         User existingUser = userService.getUser(user.getUsername());
         if (existingUser != null) {
-            model.addAttribute("error", "Username already exists. Please choose a different username.");
+            model.addAttribute(
+                    "error",
+                    "Username already exists. Please choose a different username.");
             return "signup";
         }
         userService.createUser(user);

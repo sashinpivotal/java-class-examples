@@ -36,7 +36,9 @@ public class UserServiceImpl implements UserService {
         User existingUser = userRepository.findByUsername(username);
 
         if (existingUser == null) {
-            throw new UserNotFoundException("User does not exist with Username: " + username);
+            throw new UserNotFoundException(
+                    "User does not exist with Username: "
+                    + username);
         }
 
         boolean isValid =
