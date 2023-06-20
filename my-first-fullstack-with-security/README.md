@@ -133,3 +133,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 drop database mydb;
 create database mydb;
 ```
+
+## How to disable Spring security
+
+While you are in development of your capstone project,
+you might want to turn off Spring security so that
+you can test your app without logging in.
+
+Take the following steps to disable Spring security:
+
+1. Add the following to the "application.properties"
+
+```
+# Disable spring security
+spring.autoconfigure.exclude= \
+  org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+```
+
+2. Comment out the following two lines of code in the
+   WebSecurityConfig class
+
+```
+//@Configuration
+//@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+```
