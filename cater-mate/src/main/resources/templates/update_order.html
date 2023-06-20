@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Red+Hat+Mono:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/css/styles.css}"
+    />
+    <style>
+      .card {
+        padding: 30px 40px;
+        margin-top: 0px;
+        margin-bottom: 60px;
+      }
+
+      .form-control-label {
+        margin-bottom: 0;
+      }
+
+      input,
+      textarea,
+      button {
+        padding: 8px 15px;
+        border-radius: 5px !important;
+        margin: 5px 0px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        font-size: 18px !important;
+        font-weight: 300;
+      }
+
+      input:focus,
+      textarea:focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        border: 1px solid #00bcd4;
+        outline-width: 0;
+        font-weight: 400;
+      }
+
+      select {
+        margin: 5px 0px;
+        padding: 8px 15px;
+      }
+
+      .btn-block {
+        text-transform: uppercase;
+        font-size: 15px !important;
+        font-weight: 400;
+        height: 43px;
+        cursor: pointer;
+      }
+
+      .btn-block:hover {
+        color: #fff !important;
+        background-color: #24798a;
+      }
+
+      button:focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        outline-width: 0;
+      }
+    </style>
+
+    <title>Cater Mate Update Order</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+      <a class="text-white navbar-brand ml-3" href="#">CATER MATE</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#"
+            >Order <span class="sr-only">(current)</span></a
+          >
+          <a class="nav-item nav-link" href="users.html" th:href="@{/users}"
+            >Users</a
+          >
+          <a class="nav-item nav-link" href="menu.html" th:href="@{/menu}"
+            >Menu</a
+          >
+          <a
+            class="nav-item nav-link"
+            href="view_orders.html"
+            th:href="@{/viewOrders}"
+            >View Orders</a
+          >
+          <!--          <a class="nav-item nav-link" href="#">Kitchen</a>-->
+          <a class="nav-item nav-link" href="login.html" th:href="@{/logout}"
+            >Logout</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- End navbar -->
+
+    <h1 class="display-2 pt-5 mb-5">Cater Mate</h1>
+
+    <div class="container-fluid px-1 mx-auto">
+      <div class="row d-flex justify-content-center">
+        <!-- <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center"> -->
+        <div class="text-center">
+          <div class="card" style="width: 80vw">
+            <h1>Order</h1>
+            <h2 class="text-center mt-4 mb-4">Customer Information</h2>
+            <form
+              name="orderForm"
+              class="form-card"
+              action="order_submitted.html"
+              th:action="@{/updateOrder}"
+              th:object="${order}"
+              method="POST"
+              onsubmit="return validate()"
+            >
+              <!-- Add hidden form fields to handle update, since it creates a new object -->
+              <input type="hidden" th:field="*{id}" />
+              <input type="hidden" th:field="*{orderItemList}" />
+
+              <div class="row justify-content-center text-left">
+                <div
+                  class="form-group col-12 col-sm-6 col-md-5 flex-column d-flex"
+                >
+                  <label class="form-control-label px-3"
+                    >First Name<span class="text-danger"> *</span></label
+                  >
+                  <input
+                    type="text"
+                    id="fname"
+                    name="fname"
+                    placeholder="Customer's first name"
+                    th:field="*{customerFirstName}"
+                    required
+                  />
+                </div>
+                <div
+                  class="form-group col-12 col-sm-6 col-md-5 flex-column d-flex"
+                >
+                  <label class="form-control-label px-3"
+                    >Last Name<span class="text-danger"> *</span></label
+                  >
+                  <input
+                    type="text"
+                    id="lname"
+                    name="lname"
+                    placeholder="Customer's last name"
+                    th:field="*{customerLastName}"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="row justify-content-center text-left">
+                <div
+                  class="form-group col-12 col-sm-6 col-md-5 flex-column d-flex"
+                >
+                  <label class="form-control-label px-3">Address</label>
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    placeholder="Delivery address"
+                    th:field="*{deliveryAddress}"
+                  />
+                </div>
+                <div
+                  class="form-group col-12 col-sm-6 col-md-5 flex-column d-flex"
+                >
+                  <label class="form-control-label px-3"
+                    >Phone Number<span class="text-danger"> *</span></label
+                  >
+                  <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    placeholder="480-123-4567"
+                    pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"
+                    title="Phone number format: 480-123-4567"
+                    th:field="*{customerPhone}"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="row justify-content-center text-left">
+                <div
+                  class="form-group col-12 col-sm-6 col-md-5 flex-column d-flex"
+                >
+                  <label class="form-control-label px-3"
+                    >Pickup/Delivery/Cater<span class="text-danger">
+                      *</span
+                    ></label
+                  >
+                  <select
+                    name="pickup_or_delivery"
+                    class="custom-select"
+                    id="pickup_or_delivery_id"
+                    th:field="*{deliveryOption}"
+                  >
+                    <option value="Delivery" selected>Select Option</option>
+                    <option value="Delivery">Deliver</option>
+                    <option value="Pick Up">Pick Up</option>
+                    <option value="Cater">Full-Service Cater</option>
+                  </select>
+                </div>
+                <div
+                  class="form-group col-12 col-sm-6 col-md-5 flex-column d-flex"
+                >
+                  <label class="form-control-label px-3"
+                    >Location<span class="text-danger"> *</span></label
+                  >
+                  <select
+                    name="location"
+                    class="custom-select"
+                    id="location_id"
+                    th:field="*{location}"
+                  >
+                    <option value="Gilbert" selected>Select Location</option>
+                    <option value="Eastmark">Eastmark</option>
+                    <option value="Gilbert">Gilbert</option>
+                    <option value="Mesa">Mesa</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row justify-content-center text-left">
+                <div
+                  class="form-group col-12 col-sm-6 col-md-5 flex-column d-flex"
+                >
+                  <label class="form-control-label px-3"
+                    >Catering Date<span class="text-danger"> *</span></label
+                  >
+                  <input
+                    id="cateringDate"
+                    type="date"
+                    value="2022-01-01"
+                    th:field="*{deliveryDate}"
+                  />
+                </div>
+                <div
+                  class="form-group col-12 col-sm-6 col-md-5 flex-column d-flex"
+                >
+                  <label class="form-control-label px-3"
+                    >Kitchen Ready Time<span class="text-danger">
+                      *</span
+                    ></label
+                  >
+                  <input
+                    id="readyTime"
+                    type="time"
+                    value="18:00"
+                    th:field="*{kitchenReadyTime}"
+                  />
+                </div>
+              </div>
+
+              <h2 class="mt-5 mb-5">Order Details</h2>
+              <table id="cart-table" class="table">
+                <thead>
+                  <tr>
+                    <th>Quantity</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="item : ${order.orderItemList}">
+                    <td class="text-right pr-5" th:text="${item.quantity}">
+                      Quantity
+                    </td>
+                    <td class="text-left" th:text="${item.name}">Name</td>
+                    <td class="text-right" th:text="${item.priceDisplay}">
+                      Price
+                    </td>
+                    <td class="text-right" th:text="${item.subTotalDisplay}">
+                      Subtotal
+                    </td>
+                  </tr>
+
+                  <!-- Blank row to space out the summary items-->
+                  <tr>
+                    <td><br /></td>
+                    <td><br /></td>
+                    <td><br /></td>
+                    <td><br /></td>
+                  </tr>
+
+                  <!-- Summary -->
+                  <input type="hidden" th:field="*{subTotal}" />
+                  <input type="hidden" th:field="*{tax}" />
+                  <input type="hidden" th:field="*{total}" />
+
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="text-right">Subtotal:</td>
+                    <td class="text-right" th:text="${order.subTotalDisplay}">
+                      $100.00
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="text-right">Tax:</td>
+                    <td class="text-right" th:text="${order.taxDisplay}">
+                      $8.00
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="text-right">Total:</td>
+                    <td class="text-right" th:text="${order.totalDisplay}">
+                      $108.00
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- Add hidden form fields to handle update, since it creates a new object -->
+              <!-- DOES NOT WORK             <input class="form-control" type="hidden" th:field="${order.subTotal}" th:attr="value=${cart.subTotal}"/>-->
+              <!--              <input type="hidden" th:field="*{tax}" th:text="${cart.tax}"/>-->
+              <!--              <input type="hidden" th:field="*{total}" th:attr="value=${cart.total}"/>-->
+
+              <div class="row justify-content-end mt-5">
+                <div class="form-group col-sm-4">
+                  <input
+                    class="btn btn-block btn-primary"
+                    value="Done"
+                    type="submit"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div id="feedback"></div>
+    <script
+      type="text/javascript"
+      src="../static/script/order.js"
+      th:src="@{script/order.js}"
+    ></script>
+  </body>
+</html>

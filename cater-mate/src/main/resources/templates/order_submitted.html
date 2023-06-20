@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Red+Hat+Mono:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/css/styles.css}"
+    />
+
+    <style>
+      .card {
+        height: 540px;
+        width: 400px;
+      }
+
+      .form-order-submitted {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+        margin: auto;
+        z-index: 2;
+        box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+
+      .btn.btn-primary:active:hover,
+      .btn.btn-primary:hover,
+      .btn.btn-primary:focus {
+        border-color: #24798a;
+        background-color: #24798a;
+      }
+    </style>
+    <title>Cater Mate: Order Submitted</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+      <a class="text-white navbar-brand ml-3" href="#">CATER MATE</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a
+            class="nav-item nav-link active"
+            href="order.html"
+            th:href="@{/order}"
+            >Order <span class="sr-only">(current)</span></a
+          >
+          <a class="nav-item nav-link" href="users.html" th:href="@{/users}"
+            >Users</a
+          >
+          <a class="nav-item nav-link" href="menu.html" th:href="@{/menu}"
+            >Menu</a
+          >
+          <a
+            class="nav-item nav-link"
+            href="view_orders.html"
+            th:href="@{/viewOrders}"
+            >View Orders</a
+          >
+          <!--          <a class="nav-item nav-link" href="#">Kitchen</a>-->
+          <a class="nav-item nav-link" href="login.html" th:href="@{/logout}"
+            >Logout</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- End navbar -->
+
+    <h1 class="display-2 pt-5 mb-5">Cater Mate</h1>
+    <form
+      class="form-order-submitted d-flex flex-column align-items-center px-2"
+      action="order.html"
+      th:action="@{/order}"
+    >
+      <h2 class="my-4">Thank you for your order!</h2>
+
+      <img
+        class="card"
+        src="../static/img/tacos2.jpeg"
+        th:src="@{/img/tacos2.jpeg}"
+      />
+
+      <input
+        class="btn btn-primary btn-block col-6 my-5"
+        value="Add more order"
+        type="submit"
+      />
+    </form>
+  </body>
+</html>
