@@ -12,9 +12,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootConfiguration
-@EnableAutoConfiguration
-@ComponentScan
+@SpringBootApplication
 public class MyFirstFullstackApplication {
 
     public static void main(String[] args) {
