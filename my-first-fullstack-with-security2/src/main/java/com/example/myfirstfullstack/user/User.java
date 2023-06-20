@@ -23,6 +23,8 @@ public class User implements UserDetails {
     @JsonIgnore
     private String password;
 
+    // For the simplicity of the app, we give ADMIN role to all
+    // newly signed-up users.
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singleton(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
