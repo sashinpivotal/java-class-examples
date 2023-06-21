@@ -1,5 +1,7 @@
 ## The security features supported
 
+### Part 1
+
 - Add multiple users to the system with roles 
   - we are going to store them in the InMemory database
 - Encode the password using Bcrypt
@@ -12,7 +14,15 @@
     - If a user with insufficient privilege tries to perform an action, 
       “error.html” will be displayed
     
-## Steps to add Spring security
+### Part 2
+
+- Added User database table for maintaining user credentials
+- Added and configured a custom UserDetailsService through which username is
+  checked against the User database table
+- Added SignUpController for signing a new user
+- Added signup.html for signing a new user
+    
+## Steps to add Spring security - Part 1
 
 0. Use Spring Boot version 2.6.6
 1. Add Spring Boot security starter to pom.xml and refresh the IDE
@@ -120,6 +130,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     <a th:href="@{/logout}" class="btn btn-primary btn-sm mb-3"> Log out </a>
 </div>
 ```
+
+## Steps to add Spring security - Part 2
+
+- Add SignupController class
+- Add signup.html
+- Add User entity class along with UserController, 
+  UserService, UserRepository classes
+- Add custom UserDetailsServiceImpl class implementing
+  UserDetailsService interface
+- Configure UserDetailsService bean in the
+  WebSecurityConfig class
 
 ## Trouble-shooting
 
