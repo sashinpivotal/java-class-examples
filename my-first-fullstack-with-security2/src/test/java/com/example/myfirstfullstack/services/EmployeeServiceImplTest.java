@@ -19,10 +19,8 @@ class EmployeeServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        Employee employee = new Employee();
-        employee.setLastName("Jones");
-        employee.setFirstName("Tom");
-        employee.setEmail("tom.jones@gmail.com");
+        Employee employee
+                = new Employee("Jones", "Tom", "tom.jones@gmail.com");
         employeeService.saveEmployee(employee);
     }
 
@@ -32,10 +30,8 @@ class EmployeeServiceImplTest {
         List<Employee> allEmployees = employeeService.getAllEmployees();
         int beforeAddingMoreEmployees = allEmployees.size();
 
-        Employee employee2 = new Employee();
-        employee2.setLastName("Jones2");
-        employee2.setFirstName("Tom2");
-        employee2.setEmail("tom.jones@gmail.com2");
+        Employee employee2
+                = new Employee("Jones2", "Tom2", "tom.jones2@gmail.com");
         employeeService.saveEmployee(employee2);
         int afterAddingMoreEmployees = employeeService.getAllEmployees().size();
 
