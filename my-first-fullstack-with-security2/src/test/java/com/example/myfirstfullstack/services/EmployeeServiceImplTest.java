@@ -60,4 +60,22 @@ class EmployeeServiceImplTest {
             Assertions.assertThat(employee1).isEqualTo(employee2);
         }
     }
+
+    @Test
+    void _getEmployeeById_with_invalid_id_should_throw_EmployeeNotFoundException() {
+        List<Employee> allEmployees = employeeService.getAllEmployees();
+        int invalidEmployeeId = allEmployees.size() + 10;
+
+        // Using JUnit 5 assertion package
+        org.junit.jupiter.api.Assertions.assertThrows(
+                EmployeeNotFoundException.class,
+                () -> {
+                    employeeService.getEmployeeById(invalidEmployeeId);
+                });
+
+        // Using AssertJ assertion package
+        Assertions.assertThatThrownBy(() -> {
+            employeeService.getEmployeeById(invalidEmployeeId);
+        }).isInstanceOf(EmployeeNotFoundException.class);
+    }
 }
