@@ -4,6 +4,8 @@ import com.example.myfirstfullstack.models.Employee;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -19,9 +21,12 @@ class EmployeeServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        Employee employee
+        Employee employee1
                 = new Employee("Jones", "Tom", "tom.jones@gmail.com");
-        employeeService.saveEmployee(employee);
+        employeeService.saveEmployee(employee1);
+        Employee employee2
+                = new Employee("Jones2", "Tom2", "tom.jones2@gmail.com");
+        employeeService.saveEmployee(employee2);
     }
 
     @Test
@@ -30,9 +35,9 @@ class EmployeeServiceImplTest {
         List<Employee> allEmployees = employeeService.getAllEmployees();
         int beforeAddingMoreEmployees = allEmployees.size();
 
-        Employee employee2
+        Employee employeeSaved
                 = new Employee("Jones2", "Tom2", "tom.jones2@gmail.com");
-        employeeService.saveEmployee(employee2);
+        employeeService.saveEmployee(employeeSaved);
         int afterAddingMoreEmployees = employeeService.getAllEmployees().size();
 
         Assertions.assertThat(afterAddingMoreEmployees).isEqualTo(beforeAddingMoreEmployees + 1);
@@ -59,6 +64,13 @@ class EmployeeServiceImplTest {
             Employee employee2 = employeeService.getEmployeeById(employee1.getId());
             Assertions.assertThat(employee1).isEqualTo(employee2);
         }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2}) // six numbers
+    void getEmployeeById_with_parameterized_data(int id) {
+        Employee employee = employeeService.getEmployeeById(id);
+        Assertions.assertThat(employee.getId()).isEqualTo(employee.getId());
     }
 
     @Test
