@@ -1,21 +1,31 @@
 package com.example.myfirstfullstack.services;
 
+import com.example.myfirstfullstack.MyFirstFullstackApplication;
 import com.example.myfirstfullstack.models.Employee;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.List;
-import java.util.Random;
 
-// Using @SpringBootTest to create application context
-@SpringBootTest
-class EmployeeServiceImplTest {
+// We are not using @SpringBootTest, so we have to
+// manually run the application in order to
+// create application context
+class EmployeeServiceImplTest2 {
 
-    @Autowired
-    private EmployeeService employeeService;
+    private static EmployeeService employeeService;
+
+    @BeforeAll
+    static void beforeAll() {
+        ConfigurableApplicationContext applicationContext
+                = SpringApplication.run(MyFirstFullstackApplication.class);
+        employeeService = applicationContext.getBean(EmployeeService.class);
+    }
 
     @BeforeEach
     void setUp() {
