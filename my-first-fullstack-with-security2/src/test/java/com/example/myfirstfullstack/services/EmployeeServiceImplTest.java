@@ -25,7 +25,7 @@ class EmployeeServiceImplTest {
     }
 
     @Test
-    void getAllEmployees() {
+    void getAllEmployees_should_return_all_employees() {
 
         List<Employee> allEmployees = employeeService.getAllEmployees();
         int beforeAddingMoreEmployees = allEmployees.size();
@@ -39,7 +39,7 @@ class EmployeeServiceImplTest {
     }
 
     @Test
-    void saveEmployee() {
+    void saveEmployee_with_valid_data_should_save_it_successfully() {
         double random = Math.random();
         String randomLastName = "Jones" + random;
         String randomEmail = "tom.jones" + random + "@gmail.com";
@@ -52,7 +52,7 @@ class EmployeeServiceImplTest {
     }
 
     @Test
-    void getEmployeeById() {
+    void getEmployeeById_with_valid_id_should_return_valid_employee() {
         List<Employee> allEmployees = employeeService.getAllEmployees();
         Employee employee1 = allEmployees.get(0);
         if (employee1 != null) {
