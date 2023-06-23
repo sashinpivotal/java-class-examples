@@ -70,7 +70,7 @@ class EmployeeServiceImplTest {
     @ValueSource(ints = {1, 2}) // six numbers
     void getEmployeeById_with_parameterized_data(int id) {
         Employee employee = employeeService.getEmployeeById(id);
-        Assertions.assertThat(employee.getId()).isEqualTo(employee.getId());
+        Assertions.assertThat(employee.getId()).isEqualTo(id);
     }
 
     @Test
