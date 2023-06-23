@@ -18,7 +18,6 @@ information, so it can be modified to be used with any type of products.
 - [Technical Architecture](doc/Cater%20Mate%20Technical%20Architecture.pdf)
 - [Wire Frame](doc/Cater%20Mate-wireframe.pdf)
 - [Schema Diagram](Sirichotiyakul_Supamas_Schema.pdf)
-- [Jira](https://javacourse-2.atlassian.net/jira/software/projects/CM/boards/2) -- Please contact [Supamas Sirichotiyakul](mailto:supamas.sirichotiyakul@gmail.com) to access this Jira account
 - [Technical Challenges](#technical-challenges)
 - [Lessons Learned](#lessons-learned)
 - [Future Improvements](#future-improvements)
