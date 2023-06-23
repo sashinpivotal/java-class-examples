@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest
 class EmployeeServiceImplTest {
 
     @Autowired
@@ -16,9 +16,7 @@ class EmployeeServiceImplTest {
 
     @Test
     void getAllEmployees() {
-        // arrange
 
-        // act and assert
         List<Employee> allEmployees = employeeService.getAllEmployees();
         int beforeAddingMoreEmployees = allEmployees.size();
 
@@ -32,7 +30,6 @@ class EmployeeServiceImplTest {
         Assertions.assertThat(afterAddingMoreEmployees).isEqualTo(beforeAddingMoreEmployees + 1);
         Assertions.assertThat(allEmployees.contains(employee1));
 
-        // verify
     }
 
     @Test
