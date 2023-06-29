@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.supamassirichotiyakul.catermate.security.SecurityConfiguration;
 
 @SpringBootApplication		// Use this one for real application with Spring security
-//@SpringBootApplication(exclude = SecurityConfiguration.class)	// Use this one for testing RestController
 public class CaterMateApplication {
 
 	public static void main(String[] args) {
