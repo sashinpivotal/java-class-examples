@@ -2,15 +2,14 @@ package com.example.jdbc.examplesUsingmydbDatabase;
 
 import java.sql.*;
 
-public class SQLStatement {
+public class PerformQuery {
     public static void main(String args[]) {
 
         String url = "jdbc:mysql://localhost:3306/mydb";
         Connection con;
-        String query = "select SUPPLIERS.SUP_NAME, COFFEES.COF_NAME " +
-                "from COFFEES, SUPPLIERS " +
-                "where SUPPLIERS.SUP_NAME like 'Acme, Inc.' and " +
-                "SUPPLIERS.SUP_ID = COFFEES.SUP_ID";
+        String query = "SELECT SUPPLIERS.SUP_NAME, COFFEES.COF_NAME " +
+                "FROM COFFEES INNER JOIN SUPPLIERS " +
+                "ON SUPPLIERS.SUP_ID = COFFEES.SUP_ID";
         Statement stmt;
 
         try {
